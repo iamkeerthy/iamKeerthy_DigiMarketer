@@ -288,43 +288,102 @@ nav{
   text-transform:uppercase;letter-spacing:.12em;
   color:var(--orange);margin-bottom:.75rem;
 }
-.sec-tag::before{
-  content:'';display:inline-block;
-  width:16px;height:2.5px;
-  background:var(--orange);border-radius:2px;
-}
 .sec-title{
-  font-family:var(--serif);
+  font-family:var(--sans);
   font-size:clamp(2.25rem,7vw,4.8rem);
-  font-weight:800;letter-spacing:-.03em;line-height:1.1;
+  font-weight:900;letter-spacing:-.045em;line-height:1.05;
   color:var(--ink);margin-bottom:2.4rem;
 }
+.sec-title em{font-style:normal;}
 
 /* ══════════════════════════════════
    ABOUT
 ══════════════════════════════════ */
-#about{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+#about{
+  position:relative;overflow:hidden;
+  background:
+    radial-gradient(circle at 94% 8%,rgba(197,154,69,.2),transparent 25%),
+    radial-gradient(circle at 6% 92%,rgba(143,29,44,.1),transparent 24%),
+    linear-gradient(180deg,#fbf8f5 0%,#f5efea 100%);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+}
+#about::after{
+  content:'';position:absolute;right:-70px;top:90px;
+  width:190px;height:190px;border:1px solid rgba(181,107,58,.22);
+  border-radius:50%;box-shadow:0 0 0 28px rgba(181,107,58,.04),0 0 0 56px rgba(143,29,44,.025);
+  pointer-events:none;
+}
+#about>*{position:relative;z-index:1;}
+.about-heading-row{
+  display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;
+  gap:1.25rem;margin-bottom:2rem;
+}
+.about-heading-row .sec-title{
+  margin-bottom:0;font-family:var(--sans);font-weight:900;
+  letter-spacing:-.045em;line-height:1;
+}
+.about-heading-row .sec-title em{color:var(--red);font-style:normal;}
+.about-stamp{
+  display:flex;align-items:center;gap:.75rem;
+  min-width:150px;padding:.8rem 1rem;
+  background:var(--dark);color:#fff;border-radius:18px;
+  box-shadow:0 14px 30px rgba(23,17,20,.16);
+}
+.about-stamp strong{font-family:var(--serif);font-size:1.9rem;line-height:1;color:#f1a56f;}
+.about-stamp span{font-size:.68rem;font-weight:800;line-height:1.35;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.68);}
+.about-story{
+  display:grid;gap:1.4rem;
+  padding:clamp(1.5rem,4vw,3rem);margin-bottom:1.25rem;
+  color:#fff;background:
+    radial-gradient(circle at 100% 0%,rgba(181,107,58,.35),transparent 35%),
+    linear-gradient(135deg,#171114 0%,#2b1b22 100%);
+  border:1px solid rgba(255,255,255,.08);border-radius:26px;
+  box-shadow:0 22px 55px rgba(52,31,40,.14);
+  overflow:hidden;
+}
+.about-hook{
+  max-width:760px;font-family:var(--serif);
+  font-size:clamp(2rem,4vw,4rem);font-weight:800;line-height:1.08;letter-spacing:-.035em;
+}
+.about-hook span{color:#f1a56f;font-style:italic;}
+.about-story-copy{align-self:end;}
+.about-story-label{
+  display:inline-block;margin-bottom:.75rem;padding:.35rem .65rem;
+  color:#f7bc91;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);
+  border-radius:100px;font-size:.68rem;font-weight:900;text-transform:uppercase;letter-spacing:.12em;
+}
 .about-text{
-  font-size:clamp(1.05rem,2vw,1.35rem);
-  color:var(--ink2);
-  line-height:1.85;
-  margin-bottom:2.5rem;
-  width:100%;
-  text-align:left;
+  max-width:680px;margin:0;
+  font-size:clamp(.98rem,1.35vw,1.12rem);color:rgba(255,255,255,.76);
+  line-height:1.8;text-align:left;
 }
 .about-chips{display:grid;grid-template-columns:1fr;gap:.8rem;}
 .chip{
-  display:flex;align-items:center;justify-content:center;
-  gap:.55rem;
-  background:var(--bg);border:1.5px solid var(--line);
-  color:var(--ink2);font-size:clamp(1rem,1.4vw,1.08rem);font-weight:800;
-  padding:.75rem 1.25rem;border-radius:100px;
-  min-height:62px;
-  text-align:center;
-  transition:border-color .2s,color .2s;
+  --card-accent:var(--orange);--card-bg:#fff2e8;
+  position:relative;overflow:hidden;
+  display:flex;align-items:flex-start;justify-content:flex-start;gap:.9rem;
+  min-height:118px;padding:1.15rem;
+  color:var(--ink2);background:var(--card-bg);border:1px solid rgba(18,15,18,.07);
+  border-radius:20px;box-shadow:0 8px 22px rgba(39,27,32,.055);
+  text-align:left;transition:transform .22s ease,box-shadow .22s ease;
 }
-.chip-icon{font-size:1.28em;line-height:1;color:var(--orange);}
-.chip:hover{border-color:var(--orange);color:var(--orange);}
+.chip:nth-child(2){--card-accent:#8f1d2c;--card-bg:#faecef;}
+.chip:nth-child(3){--card-accent:#5d57a4;--card-bg:#efefff;}
+.chip:nth-child(4){--card-accent:#d0574f;--card-bg:#fff0ed;}
+.chip:nth-child(5){--card-accent:#287b70;--card-bg:#eaf8f4;}
+.chip:nth-child(6){--card-accent:#2870a7;--card-bg:#eaf4fb;}
+.chip:nth-child(7){--card-accent:#9a6b18;--card-bg:#fff7dc;}
+.chip:nth-child(8){--card-accent:#5f7d32;--card-bg:#f0f8e7;}
+.chip-icon{
+  width:44px;height:44px;flex:0 0 44px;
+  display:grid;place-items:center;border-radius:13px;
+  color:#fff;background:var(--card-accent);font-size:1.2rem;line-height:1;
+  box-shadow:0 7px 16px color-mix(in srgb,var(--card-accent) 28%,transparent);
+}
+.chip-copy{display:flex;flex-direction:column;align-items:flex-start;gap:.22rem;padding-top:.1rem;}
+.chip-copy small{font-size:.63rem;font-weight:900;text-transform:uppercase;letter-spacing:.1em;color:var(--card-accent);}
+.chip-copy strong{font-size:clamp(.9rem,1.15vw,1.03rem);line-height:1.3;color:var(--ink);}
+.chip:hover{transform:translateY(-4px);box-shadow:0 16px 32px rgba(39,27,32,.1);}
 
 /* ══════════════════════════════════
    SKILLS
@@ -380,229 +439,90 @@ nav{
    EXPERIENCE
 ══════════════════════════════════ */
 #experience{
-  background:var(--bg);
-}
-.exp-cards{display:flex;flex-direction:column;gap:1rem;}
-.exp-card{
-  background:var(--bg);
-  border:1.5px solid var(--line);
-  border-radius:18px;
-  padding:1.7rem;
   position:relative;overflow:hidden;
-  transition:transform .22s ease,border-color .22s,box-shadow .22s;
+  background:
+    radial-gradient(circle at 8% 12%,rgba(143,29,44,.35),transparent 28%),
+    radial-gradient(circle at 92% 88%,rgba(181,107,58,.28),transparent 30%),
+    var(--dark);
 }
-.exp-card:hover{
-  transform:translateY(-5px);
-  border-color:var(--orange);
-  box-shadow:0 18px 45px rgba(17,17,17,.08);
+#experience::after{
+  content:'';position:absolute;right:-90px;top:-90px;
+  width:250px;height:250px;border:1px solid rgba(255,255,255,.08);border-radius:50%;
+  box-shadow:0 0 0 34px rgba(255,255,255,.018),0 0 0 68px rgba(255,255,255,.012);
+  pointer-events:none;
 }
+#experience>*{position:relative;z-index:1;}
+.exp-heading-row{
+  display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;
+  gap:1.25rem;margin-bottom:2.7rem;
+}
+#experience .sec-tag{color:#f1a56f;}
+#experience .sec-title{color:#fff;margin-bottom:0;}
+#experience .sec-title em{color:#f1a56f;font-style:normal;}
+.exp-range{
+  display:flex;flex-direction:column;align-items:flex-start;gap:.18rem;
+  padding:.85rem 1.05rem;border:1px solid rgba(255,255,255,.13);border-radius:16px;
+  background:rgba(255,255,255,.055);backdrop-filter:blur(10px);
+}
+.exp-range strong{font-family:var(--serif);font-size:1.2rem;color:#fff;line-height:1.1;}
+.exp-range span{font-size:.65rem;font-weight:900;color:rgba(255,255,255,.52);text-transform:uppercase;letter-spacing:.11em;}
+.exp-cards{
+  position:relative;display:flex;flex-direction:column;gap:1rem;
+  margin:0;padding:0 0 0 1.4rem;list-style:none;
+}
+.exp-cards::before{
+  content:'';position:absolute;left:5px;top:1.5rem;bottom:1.5rem;width:2px;
+  background:linear-gradient(180deg,#d0574f,#7b66b3,#287b70);opacity:.75;
+}
+.exp-card{
+  --exp-accent:#d0574f;--exp-bg:#fff0ed;
+  position:relative;display:flex;flex-direction:column;
+  min-height:260px;padding:1.35rem;
+  background:var(--exp-bg);border:1px solid rgba(255,255,255,.18);border-top:4px solid var(--exp-accent);
+  border-radius:22px;box-shadow:0 20px 45px rgba(0,0,0,.18);
+  transition:transform .24s ease,box-shadow .24s ease;
+}
+.exp-card:nth-child(2){--exp-accent:#695ca8;--exp-bg:#efefff;}
+.exp-card:nth-child(3){--exp-accent:#287b70;--exp-bg:#eaf8f4;}
 .exp-card::before{
-  content:'';
-  position:absolute;
-  left:0;top:1.7rem;bottom:1.7rem;
-  width:4px;
-  border-radius:0 6px 6px 0;
-  background:linear-gradient(180deg,var(--red),var(--orange));
+  content:'';position:absolute;left:-1.8rem;top:1.25rem;
+  width:14px;height:14px;border:4px solid var(--exp-accent);border-radius:50%;
+  background:var(--dark);box-shadow:0 0 0 6px var(--dark);
+}
+.exp-card:hover{transform:translateY(-6px);box-shadow:0 26px 58px rgba(0,0,0,.28);}
+.exp-card-top{
+  position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:.65rem;margin-bottom:1.25rem;
 }
 .exp-badge-pill{
-  display:inline-flex;align-items:center;gap:5px;
-  font-size:.68rem;font-weight:900;text-transform:uppercase;letter-spacing:.08em;
-  padding:.34rem .8rem;border-radius:100px;margin-bottom:.9rem;
+  display:inline-flex;align-items:center;gap:.35rem;
+  padding:.36rem .7rem;border-radius:100px;
+  color:#fff;background:var(--exp-accent);
+  font-size:.64rem;font-weight:900;text-transform:uppercase;letter-spacing:.1em;
 }
-.pill-recent{background:var(--red-light);color:var(--red);border:1px solid rgba(143,29,44,.2);}
-.pill-intern{background:var(--bg2);color:var(--muted);border:1px solid var(--line);}
-.exp-role{font-family:var(--serif);font-size:clamp(1.45rem,2.5vw,2rem);font-weight:800;letter-spacing:-.02em;color:var(--ink);margin-bottom:.25rem;line-height:1.2;}
-.exp-company{font-size:1rem;font-weight:800;color:var(--ink2);margin-bottom:.25rem;}
 .exp-period{
-  display:inline-flex;align-items:center;gap:.45rem;
-  font-size:.88rem;font-weight:800;color:var(--orange);
-  margin-bottom:.9rem;
+  padding:.36rem .68rem;border:1px solid rgba(18,15,18,.09);border-radius:100px;
+  background:rgba(255,255,255,.72);color:var(--ink2);
+  font-size:.7rem;font-weight:800;letter-spacing:.015em;
 }
-.exp-period::before{content:'•';font-size:1.2rem;line-height:1;}
-.exp-summary{
-  color:var(--ink2);
-  font-size:1rem;
-  line-height:1.65;
-  margin-bottom:1rem;
-  max-width:760px;
+.exp-role{
+  position:relative;z-index:1;max-width:390px;margin-bottom:1.25rem;
+  font-family:var(--serif);font-size:clamp(1.65rem,2.4vw,2.25rem);font-weight:800;
+  letter-spacing:-.03em;color:var(--ink);line-height:1.12;
 }
-.exp-highlights{display:flex;flex-wrap:wrap;gap:.55rem;}
-.exp-chip{
-  background:var(--bg2);
-  border:1px solid var(--line);
-  border-radius:100px;
-  color:var(--ink2);
-  font-size:.78rem;
-  font-weight:800;
-  padding:.45rem .8rem;
+.exp-company-block{
+  position:relative;z-index:1;display:flex;align-items:center;gap:.75rem;
+  margin-top:auto;padding-top:1rem;border-top:1px solid rgba(18,15,18,.1);
 }
-
-/* ══════════════════════════════════
-   SAMPLE WORKS
-══════════════════════════════════ */
-#works{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
-.works-intro{
-  color:var(--ink2);
-  font-size:clamp(1rem,1.7vw,1.2rem);
-  line-height:1.75;
-  margin:-1.25rem 0 2rem;
-  max-width:920px;
+.exp-company-mark{
+  width:40px;height:40px;flex:0 0 40px;display:grid;place-items:center;
+  color:#fff;background:var(--exp-accent);border-radius:12px;font-size:1rem;
 }
-.works-grid{display:grid;grid-template-columns:1fr;gap:1.1rem;justify-items:center;}
-.work-card{
-  background:var(--bg);
-  border:1.5px solid var(--line);
-  border-radius:18px;
-  overflow:hidden;
-  box-shadow:0 14px 36px rgba(17,17,17,.05);
-  transition:transform .22s ease,border-color .22s,box-shadow .22s;
-}
-.work-card:hover{
-  transform:translateY(-5px);
-  border-color:var(--orange);
-  box-shadow:0 20px 48px rgba(181,107,58,.12);
-}
-.work-card.featured-work{width:100%;max-width:1440px;}
-.featured-work{
-  display:grid;
-  grid-template-columns:1fr;
-}
-.work-gallery{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:.75rem;
-  padding:.75rem;
-  background:var(--bg);
-  align-content:center;
-}
-.work-shot{
-  aspect-ratio:2/5;
-  border-radius:12px;
-  overflow:hidden;
-  background:var(--bg3);
-  border:1px solid var(--line);
-}
-.work-shot img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-  transition:transform .3s ease;
-}
-.work-shot:hover img{transform:scale(1.04);}
-
-@media(max-width:639px){
-  .work-gallery{
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:.6rem;
-    padding:.6rem;
-  }
-  .work-shot{
-    aspect-ratio:4/5;
-    border-radius:10px;
-  }
-}
-.work-media{
-  min-height:260px;
-  aspect-ratio:4/3;
-  background:
-    linear-gradient(135deg,rgba(143,29,44,.08),rgba(181,107,58,.12)),
-    repeating-linear-gradient(45deg,#fff 0,#fff 12px,#f8f7f5 12px,#f8f7f5 24px);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:var(--orange);
-  font-weight:900;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  font-size:.78rem;
-}
-.work-media img{width:100%;height:100%;object-fit:cover;display:block;}
-.work-body{padding:1.5rem;}
-.work-label{
-  display:inline-flex;
-  color:var(--orange);
-  font-size:.82rem;
-  font-weight:900;
-  text-transform:uppercase;
-  letter-spacing:.09em;
-  margin-bottom:.7rem;
-}
-.work-title{font-family:var(--serif);font-size:clamp(1.8rem,3vw,3rem);font-weight:800;line-height:1.1;color:var(--ink);margin-bottom:.8rem;}
-.work-desc{color:var(--ink2);font-size:clamp(1rem,1.6vw,1.2rem);line-height:1.75;margin-bottom:1.25rem;}
-.work-tags{display:flex;flex-wrap:wrap;gap:.65rem;}
-.work-tags span{
-  background:var(--bg2);
-  border:1px solid var(--line);
-  color:var(--ink2);
-  border-radius:100px;
-  padding:.55rem .95rem;
-  font-size:.82rem;
-  font-weight:900;
-}
-.work-meta{
-  margin-top:1.4rem;
-  display:flex;
-  flex-direction:column;
-  gap:.75rem;
-}
-.work-meta-item{
-  display:flex;
-  align-items:center;
-  gap:.75rem;
-  color:var(--ink2);
-  font-size:clamp(.98rem,1.4vw,1.12rem);
-  font-weight:800;
-  background:var(--bg2);
-  border:1px solid var(--line);
-  border-radius:14px;
-  padding:.85rem 1rem;
-}
-.work-meta-icon{
-  width:32px;
-  height:32px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:10px;
-  background:var(--orange-light);
-  color:var(--orange);
-  font-size:1.05rem;
-  flex-shrink:0;
-}
-.work-actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:.75rem;
-  margin-top:1.4rem;
-}
-.work-link{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:.55rem;
-  background:var(--ink);
-  color:#fff;
-  border-radius:100px;
-  padding:.8rem 1.1rem;
-  font-size:.88rem;
-  font-weight:900;
-  transition:background .2s,transform .15s;
-}
-.work-link:hover{background:var(--orange);}
-.work-link:active{transform:scale(.97);}
-.work-link-icon{
-  width:24px;
-  height:24px;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:50%;
-  background:rgba(255,255,255,.14);
-  color:#fff;
-  font-size:.78rem;
-  font-weight:900;
-  line-height:1;
+.exp-company{font-size:.94rem;font-weight:900;color:var(--ink2);line-height:1.35;}
+.exp-work-mode{
+  display:inline-flex;margin-left:.35rem;padding:.18rem .45rem;border-radius:100px;
+  color:var(--exp-accent);background:rgba(255,255,255,.75);
+  font-size:.58rem;font-weight:900;text-transform:uppercase;letter-spacing:.08em;vertical-align:middle;
 }
 
 /* ══════════════════════════════════
@@ -698,7 +618,6 @@ nav{
   pointer-events:none;
 }
 #contact .sec-tag{color:var(--orange);}
-#contact .sec-tag::before{background:var(--orange);}
 #contact .sec-title{color:#fff;}
 .contact-sub{font-size:clamp(1rem,2vw,1.25rem);color:rgba(255,255,255,.55);margin-bottom:2.5rem;line-height:1.75;}
 .contact-links{display:flex;flex-direction:column;gap:.65rem;margin-bottom:1.5rem;}
@@ -739,13 +658,13 @@ footer{
 .exp-card.reveal{transform:translateY(34px) scale(.98);}
 .exp-card.reveal.in{transform:none;}
 .exp-card.reveal:nth-child(2){transition-delay:.12s;}
+.exp-card.reveal:nth-child(3){transition-delay:.24s;}
 
 /* ── DESKTOP ── */
 @media(min-width:640px){
   .hero-hand{display:inline;}
   .nav-links{display:flex;}
   nav{padding:0 2rem;}
-  .work-gallery{grid-template-columns:repeat(2,1fr);}
 }
 @media(min-width:768px){
   #hero{padding:2.2rem 2.5rem 0;}
@@ -762,14 +681,15 @@ footer{
   .hero-quote{display:block;max-width:220px;top:70px;left:20px;}
   .exp-badge-right{display:flex;}
   .section{padding:6.5rem clamp(2.5rem,5vw,5.5rem);max-width:none;margin:0;}
-  #about,#skills,#experience,#works,#education,#contact{padding-top:6.5rem;padding-bottom:6.5rem;}
-  .exp-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem;}
-  .works-grid{grid-template-columns:1fr;gap:1.35rem;}
-  .featured-work{grid-template-columns:minmax(0,1.35fr) minmax(360px,.65fr);align-items:center;}
-  .work-gallery{grid-template-columns:repeat(4,1fr);gap:1rem;padding:1rem;}
-  .work-body{padding:2.25rem;display:flex;flex-direction:column;justify-content:center;}
+  #about,#skills,#experience,#education,#contact{padding-top:6.5rem;padding-bottom:6.5rem;}
+  .exp-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.25rem;padding:3rem 0 0;}
+  .exp-cards::before{left:16.666%;right:16.666%;top:10px;bottom:auto;width:auto;height:2px;}
+  .exp-card{min-height:290px;}
+  .exp-card::before{left:50%;top:-3rem;transform:translateX(-50%);}
   .edu-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;}
-  .about-chips{grid-template-columns:repeat(3,1fr);gap:1rem;}
+  .about-story{grid-template-columns:minmax(0,1.15fr) minmax(280px,.85fr);align-items:end;}
+  .about-story-copy{padding-left:2rem;border-left:1px solid rgba(255,255,255,.14);}
+  .about-chips{grid-template-columns:repeat(2,1fr);gap:1rem;}
   .lang-row{grid-template-columns:repeat(3,1fr);gap:1.2rem;}
   .contact-links{flex-direction:row;flex-wrap:wrap;}
   .contact-item{flex:1;min-width:180px;}
@@ -777,7 +697,7 @@ footer{
   .stats-bar{margin-left:-2.5rem;margin-right:-2.5rem;}
   .stats-track{width:100%;animation:none;}
   .stat-item{flex:1;min-height:104px;padding:1.2rem .7rem;}
-  .stat-item:nth-child(5){border-right:none;}
+  .stat-item:nth-child(6){border-right:none;}
   .stat-item.is-copy{display:none;}
   .stat-num{font-size:1.8rem;}
   .stat-num .star{font-size:1.5rem;}
@@ -786,13 +706,38 @@ footer{
 }
 @media(min-width:1024px){
   .section{max-width:none;}
-  #about,#works,#education,#contact{max-width:none;margin-left:0;margin-right:0;}
+  #about,#education,#contact{max-width:none;margin-left:0;margin-right:0;}
   .skills-list{display:grid;grid-template-columns:1fr 1fr;}
   .skill-row{border-right:1px solid var(--line);}
   .skill-row:nth-child(2n){border-right:none;}
   .skill-row:nth-last-child(-n+2){border-bottom:none;}
+  .about-chips{grid-template-columns:repeat(4,1fr);}
   .hero-quote{max-width:220px;left:calc(50% - 580px);}
   .exp-badge-right{right:calc(50% - 500px);}
+}
+@media(min-width:768px) and (max-height:950px){
+  nav{height:68px;}
+  #hero{padding-top:clamp(1rem,2.2vh,1.35rem);}
+  .hero-hello{margin-bottom:.3rem;}
+  .hero-headline{font-size:clamp(3.2rem,5vw,4.4rem);line-height:1;margin-bottom:.25rem;}
+  .hero-role{margin-bottom:.85rem;}
+  .hero-mid{height:350px;}
+  .photo-wrap{bottom:-16px;}
+  .photo-wrap img{width:325px;}
+  .tag-marketing{top:66px;}
+  .tag-ads{top:54px;}
+  .tag-brand{top:145px;}
+  .tag-social{bottom:44px;}
+  .tag-seo{bottom:38px;}
+  .hero-quote{top:60px;}
+  .exp-badge-right{top:26px;}
+  .hero-ctas{padding-top:.8rem;}
+  .btn-orange,.btn-dark{padding:.7rem 1rem;}
+  .stats-bar{margin-top:.9rem;}
+  .stat-item{min-height:86px;padding:.75rem .55rem;}
+  .stat-num{font-size:1.55rem;}
+  .stat-num .star{font-size:1.3rem;}
+  .stat-lbl{font-size:.66rem;}
 }
 </style>
 </head>
@@ -805,7 +750,6 @@ footer{
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
-      <li><a href="#works">Works</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#education">Education</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -848,7 +792,7 @@ footer{
     <div class="exp-badge-right">
       <div class="exp-badge-icon">📅</div>
       <div class="exp-badge-text">
-        <div class="num">1.5+</div>
+        <div class="num">3.5+</div>
         <div class="lbl">Years in<br>Marketing</div>
       </div>
     </div>
@@ -864,7 +808,7 @@ footer{
 
   <!-- CTAs -->
   <div class="hero-ctas reveal">
-    <a href="#works" class="btn-orange">Portfolio ↗</a>
+    <a href="#experience" class="btn-orange">View Experience &#8599;</a>
     <a href="#contact" class="btn-dark">Hire Me</a>
   </div>
 
@@ -872,7 +816,7 @@ footer{
   <div class="stats-bar reveal">
     <div class="stats-track">
     <div class="stat-item">
-      <div class="stat-num">1.5+</div>
+      <div class="stat-num">3.5+</div>
       <div class="stat-lbl">Years<br>Experience</div>
     </div>
     <div class="stat-item">
@@ -880,8 +824,12 @@ footer{
       <div class="stat-lbl">Stand-out<br>Marketer</div>
     </div>
     <div class="stat-item">
-      <div class="stat-num">2+</div>
+      <div class="stat-num">3+</div>
       <div class="stat-lbl">Companies<br>Worked</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">60+</div>
+      <div class="stat-lbl">Clients<br>Worked With</div>
     </div>
     <div class="stat-item">
       <div class="stat-num">3</div>
@@ -892,7 +840,7 @@ footer{
       <div class="stat-lbl">Languages<br>Spoken</div>
     </div>
     <div class="stat-item is-copy" aria-hidden="true">
-      <div class="stat-num">1.5+</div>
+      <div class="stat-num">3.5+</div>
       <div class="stat-lbl">Years<br>Experience</div>
     </div>
     <div class="stat-item is-copy" aria-hidden="true">
@@ -900,8 +848,12 @@ footer{
       <div class="stat-lbl">Stand-out<br>Marketer</div>
     </div>
     <div class="stat-item is-copy" aria-hidden="true">
-      <div class="stat-num">2+</div>
+      <div class="stat-num">3+</div>
       <div class="stat-lbl">Companies<br>Worked</div>
+    </div>
+    <div class="stat-item is-copy" aria-hidden="true">
+      <div class="stat-num">60+</div>
+      <div class="stat-lbl">Clients<br>Worked With</div>
     </div>
     <div class="stat-item is-copy" aria-hidden="true">
       <div class="stat-num">3</div>
@@ -918,16 +870,32 @@ footer{
 
 <!-- ══ ABOUT ══ -->
 <section id="about" class="section">
-  <div class="sec-tag reveal">About Me</div>
-  <h2 class="sec-title reveal">Who I Am</h2>
-  <p class="about-text reveal">I'm a Digital Marketing professional based in Jaffna, Sri Lanka — passionate about building brand presence and connecting businesses with their audiences. With 1.5 years of hands-on experience across campaigns, content and paid ads, I combine creativity with data to drive real, measurable growth.</p>
+  <div class="about-heading-row reveal">
+    <div>
+      <div class="sec-tag">About Me</div>
+      <h2 class="sec-title">Behind the<br><em>campaigns.</em></h2>
+    </div>
+    <div class="about-stamp" aria-label="3.5 plus years of hands-on experience">
+      <strong>3.5+</strong>
+      <span>Years<br>hands-on</span>
+    </div>
+  </div>
+  <div class="about-story reveal">
+    <p class="about-hook">I make brands <span>hard to scroll past.</span></p>
+    <div class="about-story-copy">
+      <span class="about-story-label">How I work</span>
+      <p class="about-text">I'm Keerthy, a digital marketer from Jaffna. For 3.5+ years, I've planned campaigns, shaped content, run Meta ads and improved search visibility. I like ideas that look good, make sense and perform even better.</p>
+    </div>
+  </div>
   <div class="about-chips reveal">
-    <span class="chip"><span class="chip-icon">&#10022;</span>Jaffna, Sri Lanka</span>
-    <span class="chip"><span class="chip-icon">&#9670;</span>BSc Industrial IT</span>
-    <span class="chip"><span class="chip-icon">&#9650;</span>Campaign Strategy</span>
-    <span class="chip"><span class="chip-icon">&#9998;</span>Content Creator</span>
-    <span class="chip"><span class="chip-icon">&#8981;</span>SEO Specialist</span>
-    <span class="chip"><span class="chip-icon">&#9889;</span>AI in Marketing</span>
+    <article class="chip"><span class="chip-icon" aria-hidden="true">&#9673;</span><span class="chip-copy"><small>Home base</small><strong>Jaffna, Sri Lanka</strong></span></article>
+    <article class="chip"><span class="chip-icon" aria-hidden="true">&#9670;</span><span class="chip-copy"><small>Education</small><strong>BSc Industrial IT</strong></span></article>
+    <article class="chip"><span class="chip-icon" aria-hidden="true">&#9678;</span><span class="chip-copy"><small>Paid social</small><strong>Meta Ads Specialist</strong></span></article>
+    <article class="chip"><span class="chip-icon" aria-hidden="true">&#9650;</span><span class="chip-copy"><small>Planning</small><strong>Campaign Strategy</strong></span></article>
+    <article class="chip"><span class="chip-icon" aria-hidden="true">&#9998;</span><span class="chip-copy"><small>Creative</small><strong>Content Creator</strong></span></article>
+    <article class="chip"><span class="chip-icon" aria-hidden="true">&#8981;</span><span class="chip-copy"><small>Visibility</small><strong>SEO Specialist</strong></span></article>
+    <article class="chip"><span class="chip-icon" aria-hidden="true">&#9889;</span><span class="chip-copy"><small>Modern tools</small><strong>AI in Marketing</strong></span></article>
+    <article class="chip"><span class="chip-icon" aria-hidden="true">&#8599;</span><span class="chip-copy"><small>Mindset</small><strong>Data-led Growth</strong></span></article>
   </div>
 </section>
 
@@ -1013,63 +981,51 @@ footer{
 
 <!-- ══ EXPERIENCE ══ -->
 <section id="experience" class="section">
-  <div class="sec-tag reveal">Career</div>
-  <h2 class="sec-title reveal">Work Experience</h2>
-  <div class="exp-cards">
-    <div class="exp-card reveal">
-      <div class="exp-badge-pill pill-recent">✦ Recent Role</div>
-      <div class="exp-role">Digital Marketing Executive</div>
-      <div class="exp-company">Takitro Pvt Ltd</div>
-      <div class="exp-period">Feb 2026 – May 2026</div>
-      <p class="exp-summary">Managed digital campaigns, social content and performance tracking to support brand growth.</p>
-      <div class="exp-highlights">
-        <span class="exp-chip">Campaigns</span>
-        <span class="exp-chip">Content</span>
-      </div>
+  <div class="exp-heading-row reveal">
+    <div>
+      <div class="sec-tag">Career Track</div>
+      <h2 class="sec-title">Work<br><em>Experience.</em></h2>
     </div>
-    <div class="exp-card reveal">
-      <div class="exp-badge-pill pill-intern">◎ Internship</div>
-      <div class="exp-role">Digital Marketing Intern</div>
-      <div class="exp-company">Vangardo Creations Pvt Ltd</div>
-      <div class="exp-period">Jun 2025 – Jan 2026</div>
-      <p class="exp-summary">Supported campaign execution, promotional content and social media scheduling.</p>
-      <div class="exp-highlights">
-        <span class="exp-chip">Scheduling</span>
-        <span class="exp-chip">Promotions</span>
-      </div>
+    <div class="exp-range">
+      <strong>Dec 2024 &ndash; Sep 2026</strong>
+      <span>3 roles &bull; 3 companies</span>
     </div>
   </div>
-</section>
-
-<!-- ══ SAMPLE WORKS ══ -->
-<section id="works" class="section">
-  <div class="sec-tag reveal">Portfolio</div>
-  <h2 class="sec-title reveal">Sample Works</h2>
-  <p class="works-intro reveal">Selected Royal Plaza campaign visuals and social media post designs.</p>
-  <div class="works-grid reveal">
-    <article class="work-card featured-work">
-      <div class="work-gallery">
-        <div class="work-shot"><img src="R1.jpg" alt="Royal Plaza sample work 1"></div>
-        <div class="work-shot"><img src="R2.jpg" alt="Royal Plaza sample work 2"></div>
-        <div class="work-shot"><img src="R3.jpg" alt="Royal Plaza sample work 3"></div>
-        <div class="work-shot"><img src="R4.png" alt="Royal Plaza sample work 4"></div>
+  <ol class="exp-cards">
+    <li class="exp-card reveal">
+      <div class="exp-card-top">
+        <span class="exp-badge-pill">Latest role</span>
+        <span class="exp-period">Feb 2026 &ndash; Sep 2026</span>
       </div>
-      <div class="work-body">
-        <div class="work-label">Brand Work</div>
-        <h3 class="work-title">Royal Plaza Campaigns</h3>
-        <p class="work-desc">Social media creative samples prepared for Royal Plaza promotions and brand visibility.</p>
-        <div class="work-tags"><span>Social Posts</span><span>Promotions</span><span>Branding</span></div>
-        <div class="work-meta">
-          <div class="work-meta-item"><span class="work-meta-icon">&#10022;</span>Royal Plaza | Premium Retail Shop</div>
-          <div class="work-meta-item"><span class="work-meta-icon">&#9670;</span>Ladies slippers and retail product promotions</div>
-        </div>
-        <div class="work-actions">
-          <a class="work-link" href="https://web.facebook.com/people/Royal-Plaza/61583004051152/" target="_blank" rel="noopener"><span class="work-link-icon">f</span>Facebook Page</a>
-          <a class="work-link" href="https://www.royalplaza.lk/products/ladies-slippers" target="_blank" rel="noopener"><span class="work-link-icon">&#8982;</span>Website Product</a>
-        </div>
+      <h3 class="exp-role">Digital Marketing Specialist</h3>
+      <div class="exp-company-block">
+        <span class="exp-company-mark" aria-hidden="true">H</span>
+        <div class="exp-company">Hookslink <span class="exp-work-mode">Remote</span></div>
       </div>
-    </article>
-  </div>
+    </li>
+    <li class="exp-card reveal">
+      <div class="exp-card-top">
+        <span class="exp-badge-pill">Previous role</span>
+        <span class="exp-period">Jun 2025 &ndash; Jan 2026</span>
+      </div>
+      <h3 class="exp-role">Digital Marketing Executive</h3>
+      <div class="exp-company-block">
+        <span class="exp-company-mark" aria-hidden="true">T</span>
+        <div class="exp-company">Takitro Pvt Ltd</div>
+      </div>
+    </li>
+    <li class="exp-card reveal">
+      <div class="exp-card-top">
+        <span class="exp-badge-pill">Earlier role</span>
+        <span class="exp-period">Dec 2024 &ndash; May 2025</span>
+      </div>
+      <h3 class="exp-role">Digital Marketer</h3>
+      <div class="exp-company-block">
+        <span class="exp-company-mark" aria-hidden="true">V</span>
+        <div class="exp-company">Vangardo Creations Pvt Ltd</div>
+      </div>
+    </li>
+  </ol>
 </section>
 
 <!-- ══ EDUCATION ══ -->
@@ -1160,7 +1116,7 @@ footer{
 <!-- ══ CONTACT ══ -->
 <section id="contact" class="section">
   <div class="sec-tag reveal">Let's Talk</div>
-  <h2 class="sec-title reveal" style="color:#fff;">Ready to<br><em style="color:var(--orange);font-style:italic;">work together?</em></h2>
+  <h2 class="sec-title reveal" style="color:#fff;">Ready to<br><em style="color:var(--orange);">work together?</em></h2>
   <p class="contact-sub reveal">Open to full-time roles, freelance projects &amp; collaborations.<br>Let's build something great together.</p>
   <div class="contact-links reveal">
     <a href="tel:+94767970739" class="contact-item">
